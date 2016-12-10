@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as AppActions from '../actions/app';
+import * as LoginActions from '../actions/auth/login';
 
-import Home from '../components/Home';
+import Login from '../components/auth/Login';
 
 function mapStateToProps(state, ownProps) {
     return {
-        app: state.app,
+        login: state.login,
         router: ownProps.router,
     };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(AppActions, dispatch);
+  return bindActionCreators(LoginActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

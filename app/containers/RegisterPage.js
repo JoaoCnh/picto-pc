@@ -3,19 +3,19 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as AppActions from '../actions/app';
+import * as RegisterActions from '../actions/auth/register';
 
-import Home from '../components/Home';
+import Register from '../components/auth/Register';
 
 function mapStateToProps(state, ownProps) {
     return {
-        app: state.app,
+        register: state.register,
         router: ownProps.router,
     };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(AppActions, dispatch);
+  return bindActionCreators(RegisterActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
