@@ -1,4 +1,6 @@
 import URL from '../config';
+
+import { fetchPOST } from '../utils/fetch';
 import storageKeys from '../utils/storageKeys';
 
 const AuthAPI = {
@@ -12,23 +14,13 @@ const AuthAPI = {
     },
 
     tryLogin: (username, password) => {
-        return fetch(`${URL}auth/login`, {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json; charset=utf-8"
-            },
+        return fetchPOST(`${URL}auth/login`, {
             body: JSON.stringify({username, password}),
         }).then((res) => res.json());
     },
 
     tryRegister: (username, password, passwordConfirmation) => {
-        return fetch(`${URL}auth/register`, {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json; charset=utf-8"
-            },
+        return fetchPOST(`${URL}auth/register`, {
             body: JSON.stringify({ username, password }),
         }).then((res) => res.json());
     },
