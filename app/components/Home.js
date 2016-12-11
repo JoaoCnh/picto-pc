@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+
 import styles from './Home.css';
 import loaderStyles from './AppLoader.css';
 
@@ -14,11 +15,13 @@ export default class Home extends Component {
             return this.props.router.push('/auth/login');
         }
 
-        this.props.startAppLoading();
+        if (!this.props.app.loadFinished) {
+            this.props.startAppLoading();
 
-        setTimeout(() => {
-            this.props.stopAppLoading();
-        }, 5000);
+            setTimeout(() => {
+                this.props.stopAppLoading();
+            }, 5000);
+        }
     }
 
     render() {
@@ -29,7 +32,12 @@ export default class Home extends Component {
                 <AppLoader />
 
                 <div className={styles.container}>
-                    <h1>Olá ELECTRON</h1>
+                    <div className={styles.leftContainer}>
+                        <h1>Olá esquerda</h1>
+                    </div>
+                    <div className={styles.rightContainer}>
+                        <h1>Olá direita</h1>
+                    </div>
                 </div>
             </div>
         );
