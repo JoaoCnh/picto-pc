@@ -1,10 +1,12 @@
-import { APP_LOAD_START, APP_LOAD_END, TOGGLE_MENU } from '../actions/app';
+import { APP_LOAD_START, APP_LOAD_END, TOGGLE_MENU, LOGOUT } from '../actions/app';
 
-export default function app(state = {
+const initialState = {
     isLoadingApp: false,
     loadFinished: false,
     isMenuActive: false,
-}, action = Object) {
+};
+
+export default function app(state = initialState, action = Object) {
     switch (action.type) {
         case APP_LOAD_START:
             return {...state, isLoadingApp: true};
@@ -12,6 +14,8 @@ export default function app(state = {
             return {...state, isLoadingApp: false, loadFinished: true};
         case TOGGLE_MENU:
             return {...state, isMenuActive: !state.isMenuActive};
+        case LOGOUT:
+            return initialState;
         default:
             return state;
     }
