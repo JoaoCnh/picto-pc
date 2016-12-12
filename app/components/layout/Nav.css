@@ -35,6 +35,7 @@
 }
 .pictoNav ul a {
   position: relative;
+  text-decoration: none;
   display: block;
   height: 50px;
   line-height: 50px;
@@ -126,7 +127,11 @@
     -webkit-transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
 }
+.pictoNav ul i {
+    display: none;
+}
 .pictoNav.visible ul i {
+    display: inline-block;
     position: absolute;
     top: 25px;
     right: 18px;
