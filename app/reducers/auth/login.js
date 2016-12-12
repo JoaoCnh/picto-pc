@@ -6,9 +6,11 @@ import {
     LOGIN_ERROR
 } from '../../actions/auth/login';
 
+import { LOGOUT } from '../../actions/app';
+
 import strUtils from '../../utils/str';
 
-export default function app(state = {
+const initialState = {
     title: "Hello There",
     isAttemptingLogin: false,
     loginUsername: "",
@@ -16,7 +18,9 @@ export default function app(state = {
     loginSuccess: false,
     loginError: false,
     loginErrorMessage: "",
-}, action = Object) {
+};
+
+export default function app(state = initialState, action = Object) {
     switch (action.type) {
         case ATTEMPTING_LOGIN:
             return {...state, isAttemptingLogin: true};
@@ -52,6 +56,8 @@ export default function app(state = {
                 loginError: true,
                 loginErrorMessage: action.payload
             };
+        case LOGOUT:
+            return initialState;
         default:
             return state;
     }

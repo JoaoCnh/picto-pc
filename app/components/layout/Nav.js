@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NavLink from './NavLink';
+import { NavAction, NavLink } from './NavButtons';
 
 import styles from './Nav.css';
 
@@ -22,8 +22,9 @@ export default class Nav extends Component {
 
                 <ul>
                     <NavLink currentRoute={this.props.route} title="Home" icon="home" route="/" />
-                    <NavLink currentRoute={this.props.route} title="Profile" icon="fa fa-user-circle-o"
+                    <NavLink currentRoute={this.props.route} title="Profile" icon="user-circle-o"
                         route="/profile" />
+                    <NavAction callback={this.props.logout} title="Logout" icon="sign-out" />
                 </ul>
 
                 <span aria-hidden="true" className={styles.pictoNavBg}></span>

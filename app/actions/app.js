@@ -1,8 +1,10 @@
 // @flow
+import AuthAPI from '../api/auth';
 
 export const APP_LOAD_START = 'APP_LOAD_START';
 export const APP_LOAD_END = 'APP_LOAD_END';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const LOGOUT = 'LOGOUT';
 
 export function startAppLoading() {
   return {
@@ -19,5 +21,12 @@ export function stopAppLoading() {
 export function toggleMenu() {
     return {
         type: TOGGLE_MENU,
+    };
+}
+
+export function logout() {
+    AuthAPI.logout();
+    return {
+        type: LOGOUT,
     };
 }

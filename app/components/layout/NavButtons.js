@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import styles from './Nav.css';
 
-export default class NavLink extends Component {
+export class NavLink extends Component {
     render() {
         let isActive = this.props.currentRoute === this.props.route;
         let linkStyle = isActive ? styles.active : "";
@@ -14,6 +14,19 @@ export default class NavLink extends Component {
                     <span>{this.props.title}</span>
                     <i className={`fa fa-${this.props.icon}`}></i>
                 </Link>
+            </li>
+        );
+    }
+}
+
+export class NavAction extends Component {
+    render() {
+        return (
+            <li>
+                <a href="#" onClick={this.props.callback}>
+                    <span>{this.props.title}</span>
+                    <i className={`fa fa-${this.props.icon}`}></i>
+                </a>
             </li>
         );
     }

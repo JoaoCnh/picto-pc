@@ -5,8 +5,16 @@ import storageKeys from '../utils/storageKeys';
 
 const AuthAPI = {
 
+    getLogin: () => {
+        return JSON.parse(localStorage.getItem(storageKeys.auth));
+    },
+
     setLogin: (user) => {
-        return localStorage.setItem(storageKeys.auth, user);
+        return localStorage.setItem(storageKeys.auth, JSON.stringify(user));
+    },
+
+    logout: () => {
+        return localStorage.removeItem(storageKeys.auth);
     },
 
     isAuthenticated: () => {
