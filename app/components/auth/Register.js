@@ -11,6 +11,12 @@ import AuthAPI from '../../api/auth';
 import strUtils from '../../utils/str';
 
 export default class Register extends Component {
+    componentWillMount() {
+        if (AuthAPI.isAuthenticated()) {
+            return this.props.router.push("/");
+        }
+    }
+
     _handleRegisterAttempt(event) {
         event.preventDefault();
 
@@ -45,15 +51,19 @@ export default class Register extends Component {
                 this.props.registerError(err.message);
             });
     }
+
     _handleUsernameChange(event) {
         this.props.usernameChanged(event.target.value);
     }
+
     _handlePasswordChange(event) {
         this.props.passwordChanged(event.target.value);
     }
+
     _handlePasswordConfirmationChange(event) {
         this.props.passwordConfirmationChanged(event.target.value);
     }
+
     render() {
         let error = this.props.register.registerError ?
             <AuthError errorMessage={this.props.register.registerErrorMessage} /> : <div />;

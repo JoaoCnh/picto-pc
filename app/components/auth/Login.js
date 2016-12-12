@@ -11,6 +11,12 @@ import AuthAPI from '../../api/auth';
 import strUtils from '../../utils/str';
 
 export default class Login extends Component {
+    componentWillMount() {
+        if (AuthAPI.isAuthenticated()) {
+            return this.props.router.push("/");
+        }
+    }
+
     _handleLoginAttempt(event) {
         event.preventDefault();
 
@@ -41,12 +47,15 @@ export default class Login extends Component {
                 this.props.loginError(err.message);
             });
     }
+
     _handleUsernameChange(event) {
         this.props.usernameChanged(event.target.value);
     }
+
     _handlePasswordChange(event) {
         this.props.passwordChanged(event.target.value);
     }
+
     render() {
         let error = this.props.login.loginError ?
             <AuthError errorMessage={this.props.login.loginErrorMessage} /> : <div />;
