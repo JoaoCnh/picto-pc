@@ -9,6 +9,7 @@ export default class Nav extends Component {
         event.preventDefault();
         this.props.toggleMenu();
     }
+
     render() {
         let navCssClass = this.props.active ? `${styles.pictoNav} ${styles.visible}` : styles.pictoNav;
 

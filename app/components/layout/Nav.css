@@ -1,6 +1,6 @@
 .pictoNav {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     top: 20px;
     right: 20px;
 }
@@ -8,7 +8,7 @@
 .pictoNav .pictoNavBg {
     /* this is the stretching navigation background */
     position: absolute;
-    z-index: 1;
+    z-index: 4;
     top: 0;
     right: 0;
     width: 60px;
@@ -28,7 +28,7 @@
 
 .pictoNav ul {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   padding: 60px 0 0;
   visibility: hidden;
   -webkit-transition: visibility 0.3s;
@@ -203,7 +203,7 @@
 
 .pictoNavTrigger {
   position: absolute;
-  z-index: 3;
+  z-index: 6;
   top: 0;
   right: 0;
   height: 60px;

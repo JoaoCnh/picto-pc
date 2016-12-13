@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import AuthBubbles from './auth/AuthBubbles';
 
@@ -13,6 +14,13 @@ export default class Profile extends Component {
 
         this.currentUser = AuthAPI.getLogin();
     }
+
+    _handleLogout(event) {
+        event.preventDefault();
+        this.props.logout();
+        return this.props.router.push("/auth/login");
+    }
+
     render() {
         return (
             <div className={genStyles.bubbleWrapper}>
@@ -24,6 +32,16 @@ export default class Profile extends Component {
                     <div className={styles.profileName}>
                         {this.currentUser.username}
                     </div>
+
+                    <Link className={styles.profileBtn} to="achievements">
+                        <i className="fa fa-trophy"></i>
+                        Achievements
+                    </Link>
+                    <a href="#" className={styles.profileBtn}
+                        onClick={this._handleLogout.bind(this)}>
+                        <i className="fa fa-sign-out"></i>
+                        Logout
+                    </a>
                 </div>
 
                 <AuthBubbles />
