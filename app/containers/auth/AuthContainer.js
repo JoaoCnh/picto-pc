@@ -5,18 +5,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { routerActions } from 'react-router-redux';
 
-import * as AppActions from '../actions/app';
-
-import App from '../components/App';
+import Auth from '../../components/auth/Auth';
 
 function mapStateToProps(state, ownProps) {
-    return {
-        app: state.app,
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ ...routerActions, ...AppActions}, dispatch);
+    return bindActionCreators(routerActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

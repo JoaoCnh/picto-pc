@@ -12,7 +12,7 @@ import AuthAPI from '../api/auth';
 export default class Home extends Component {
     componentWillMount() {
         if (!AuthAPI.isAuthenticated()) {
-            return this.props.router.push('/auth/login');
+            return this.props.push('/auth/login');
         }
 
         if (!this.props.app.loadFinished) {

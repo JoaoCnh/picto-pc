@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import styles from './Auth.css';
-import AuthBubbles from './AuthBubbles';
 import AuthError from './AuthError';
 
 import AuthAPI from '../../api/auth';
@@ -11,12 +10,6 @@ import AuthAPI from '../../api/auth';
 import strUtils from '../../utils/str';
 
 export default class Login extends Component {
-    componentWillMount() {
-        if (AuthAPI.isAuthenticated()) {
-            return this.props.router.push("/");
-        }
-    }
-
     _handleLoginAttempt(event) {
         event.preventDefault();
 
@@ -40,7 +33,7 @@ export default class Login extends Component {
                 AuthAPI.setLogin(res.user);
 
                 setTimeout(() => {
-                    this.props.router.push("/");
+                    this.props.push("/");
                 }, 1500);
             })
             .catch((err) => {
@@ -66,40 +59,36 @@ export default class Login extends Component {
 
         let formClassName = this.props.login.loginSuccess ? styles.fadeOut : "";
         let titleClassName = this.props.login.loginSuccess ? styles.slideDown : "";
-
+        console.log('RENDER LOGIN');
         return (
-            <div className={styles.authWrapper}>
-                <div className={styles.authContainer}>
-                    <h1 className={titleClassName}>
-                        {this.props.login.title}
-                    </h1>
+            <div className={styles.authContainer}>
+                <h1 className={titleClassName}>
+                    {this.props.login.title}
+                </h1>
 
-                    {error}
+                {error}
 
-                    <form className={formClassName}>
-                        <input type="text" placeholder="Username / Email"
-                            value={this.props.login.loginUsername}
-                            onChange={this._handleUsernameChange.bind(this)} />
-                        <input type="password" placeholder="Password"
-                            value={this.props.login.loginPassword}
-                            onChange={this._handlePasswordChange.bind(this)} />
-                        <button type="submit" className={styles.authButton}
-                            disabled={this.props.login.isAttemptingLogin}
-                            onClick={this._handleLoginAttempt.bind(this)}>
-                            {loggingInIcon} {btnTxt}
-                        </button>
+                <form className={formClassName}>
+                    <input type="text" placeholder="Username / Email"
+                        value={this.props.login.loginUsername}
+                        onChange={this._handleUsernameChange.bind(this)} />
+                    <input type="password" placeholder="Password"
+                        value={this.props.login.loginPassword}
+                        onChange={this._handlePasswordChange.bind(this)} />
+                    <button type="submit" className={styles.authButton}
+                        disabled={this.props.login.isAttemptingLogin}
+                        onClick={this._handleLoginAttempt.bind(this)}>
+                        {loggingInIcon} {btnTxt}
+                    </button>
 
-                        <div className={styles.authExtraLink}>
-                            {'Not a member? '}
-                            <Link to="/auth/register">
-                                {'Register here '}
-                                <i className="fa fa-arrow-right"></i>
-                            </Link>
-                        </div>
-                    </form>
-                </div>
-
-                <AuthBubbles />
+                    <div className={styles.authExtraLink}>
+                        {'Not a member? '}
+                        <Link to="/auth/register">
+                            {'Register here '}
+                            <i className="fa fa-arrow-right"></i>
+                        </Link>
+                    </div>
+                </form>
             </div>
         );
     }

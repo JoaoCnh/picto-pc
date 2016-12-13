@@ -15,7 +15,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(AppActions, dispatch);
+    return bindActionCreators(AppActions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

@@ -5,13 +5,13 @@ import Nav from './layout/Nav';
 export default class App extends Component {
     _logout() {
         this.props.logout();
-        return this.props.router.push("/auth/login");
+        return this.props.push("/auth/login");
     }
 
     render() {
         return (
             <div>
-                <Nav route={this.props.router.location.pathname}
+                <Nav route={this.props.location.pathname}
                     active={this.props.app.isMenuActive}
                     toggleMenu={this.props.toggleMenu}
                     logout={this._logout.bind(this)} />

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import styles from './Auth.css';
-import AuthBubbles from './AuthBubbles';
 import AuthError from './AuthError';
 
 import AuthAPI from '../../api/auth';
@@ -11,12 +10,6 @@ import AuthAPI from '../../api/auth';
 import strUtils from '../../utils/str';
 
 export default class Register extends Component {
-    componentWillMount() {
-        if (AuthAPI.isAuthenticated()) {
-            return this.props.router.push("/");
-        }
-    }
-
     _handleRegisterAttempt(event) {
         event.preventDefault();
 
@@ -44,7 +37,7 @@ export default class Register extends Component {
                 this.props.registerSuccess();
 
                 setTimeout(() => {
-                    this.props.router.push("/auth/login");
+                    this.props.push("/auth/login");
                 }, 1500);
             })
             .catch((err) => {
@@ -74,44 +67,40 @@ export default class Register extends Component {
 
         let formClassName = this.props.register.registerSuccess ? styles.fadeOut : "";
         let titleClassName = this.props.register.registerSuccess ? styles.slideDown : "";
-
+        console.log('RENDER REGISTER', this.props.location.pathname);
         return (
-            <div className={styles.authWrapper}>
-                <div className={styles.authContainer}>
-                    <h1 className={titleClassName}>
-                        {this.props.register.title}
-                    </h1>
+            <div className={styles.authContainer}>
+                <h1 className={titleClassName}>
+                    {this.props.register.title}
+                </h1>
 
-                    {error}
+                {error}
 
-                    <form className={formClassName}>
-                        <input type="text" placeholder="Username / Email"
-                            value={this.props.register.registerUsername}
-                            onChange={this._handleUsernameChange.bind(this)} />
-                        <input type="password" placeholder="Password"
-                            value={this.props.register.registerPassword}
-                            onChange={this._handlePasswordChange.bind(this)} />
-                        <input type="password" placeholder="Password Confirmation"
-                            value={this.props.register.registerPasswordConfirmation}
-                            onChange={this._handlePasswordConfirmationChange.bind(this)} />
+                <form className={formClassName}>
+                    <input type="text" placeholder="Username / Email"
+                        value={this.props.register.registerUsername}
+                        onChange={this._handleUsernameChange.bind(this)} />
+                    <input type="password" placeholder="Password"
+                        value={this.props.register.registerPassword}
+                        onChange={this._handlePasswordChange.bind(this)} />
+                    <input type="password" placeholder="Password Confirmation"
+                        value={this.props.register.registerPasswordConfirmation}
+                        onChange={this._handlePasswordConfirmationChange.bind(this)} />
 
-                        <button type="submit" className={styles.authButton}
-                            disabled={this.props.register.isAttemptingRegister}
-                            onClick={this._handleRegisterAttempt.bind(this)}>
-                            {registeringIcon} {btnTxt}
-                        </button>
+                    <button type="submit" className={styles.authButton}
+                        disabled={this.props.register.isAttemptingRegister}
+                        onClick={this._handleRegisterAttempt.bind(this)}>
+                        {registeringIcon} {btnTxt}
+                    </button>
 
-                        <div className={styles.authExtraLink}>
-                            {'Already have an account? '}
-                            <Link to="/auth/login">
-                                {'Login here '}
-                                <i className="fa fa-arrow-right"></i>
-                            </Link>
-                        </div>
-                    </form>
-                </div>
-
-                <AuthBubbles />
+                    <div className={styles.authExtraLink}>
+                        {'Already have an account? '}
+                        <Link to="/auth/login">
+                            {'Login here '}
+                            <i className="fa fa-arrow-right"></i>
+                        </Link>
+                    </div>
+                </form>
             </div>
         );
     }
