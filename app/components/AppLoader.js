@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './AppLoader.css';
 
-class AppLoader extends React.Component {
+export default class AppLoader extends React.Component {
     render() {
         return (
             <div className={styles.loaderWrapper}>
@@ -14,5 +14,3 @@ class AppLoader extends React.Component {
         );
     }
 }
-
-export default AppLoader;

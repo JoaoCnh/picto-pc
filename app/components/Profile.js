@@ -28,19 +28,24 @@ export default class Profile extends Component {
                 <div className={styles.profileCard}>
                     <div className={styles.profile}>
                         <img src="../resources/usericons/default.png" className={styles.border} />
-                    </div>
-                    <div className={styles.profileName}>
-                        {this.currentUser.username}
+
+                        <div className={styles.profileName}>
+                            {this.currentUser.username}
+                        </div>
                     </div>
 
+                    <Link className={styles.profileBtn} to="info">
+                        <i className="fa fa-user"></i>
+                        {` Change Information`}
+                    </Link>
                     <Link className={styles.profileBtn} to="achievements">
                         <i className="fa fa-trophy"></i>
-                        Achievements
+                        {` Achievements`}
                     </Link>
                     <a href="#" className={styles.profileBtn}
                         onClick={this._handleLogout.bind(this)}>
                         <i className="fa fa-sign-out"></i>
-                        Logout
+                        {` Logout`}
                     </a>
                 </div>
 
