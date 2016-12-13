@@ -4,9 +4,10 @@ import { Router, Route, IndexRoute } from 'react-router';
 
 import AppContainer from './containers/AppContainer';
 import AuthContainer from './containers/auth/AuthContainer';
+import ProfileContainer from './containers/profile/ProfileContainer';
 
 import HomePage from './containers/HomePage';
-import ProfilePage from './containers/ProfilePage';
+import ProfilePage from './containers/profile/ProfilePage';
 
 import LoginPage from './containers/auth/LoginPage';
 import RegisterPage from './containers/auth/RegisterPage';
@@ -19,9 +20,12 @@ export default (
         <Route path="/" component={AppContainer}>
             <IndexRoute component={HomePage} />
 
-            <Route path="profile" component={ProfilePage} />
-            <Route path="info" component={InfoPage} />
-            <Route path="achievements" component={AchievementsPage} />
+            <Route path="profile" component={ProfileContainer}>
+                <IndexRoute component={ProfilePage} />
+
+                <Route path="info" component={InfoPage} />
+                <Route path="achievements" component={AchievementsPage} />
+            </Route>
         </Route>
         <Route path="/auth" component={AuthContainer}>
             <Route path="login" component={LoginPage} />

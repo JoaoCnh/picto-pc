@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as AppActions from '../actions/app';
+import * as AppActions from '../../actions/app';
 
-import Profile from '../components/Profile';
+import Profile from '../../components/profile/Profile';
 
 function mapStateToProps(state, ownProps) {
     return {
