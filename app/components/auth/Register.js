@@ -67,7 +67,7 @@ export default class Register extends Component {
 
         let formClassName = this.props.register.registerSuccess ? styles.fadeOut : "";
         let titleClassName = this.props.register.registerSuccess ? styles.slideDown : "";
-        console.log('RENDER REGISTER', this.props.location.pathname);
+
         return (
             <div className={styles.authContainer}>
                 <h1 className={titleClassName}>

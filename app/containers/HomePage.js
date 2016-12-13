@@ -11,7 +11,6 @@ import Home from '../components/Home';
 function mapStateToProps(state, ownProps) {
     return {
         app: state.app,
-        router: ownProps.router,
     };
 }
 

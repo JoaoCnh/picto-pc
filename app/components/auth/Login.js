@@ -59,7 +59,7 @@ export default class Login extends Component {
 
         let formClassName = this.props.login.loginSuccess ? styles.fadeOut : "";
         let titleClassName = this.props.login.loginSuccess ? styles.slideDown : "";
-        console.log('RENDER LOGIN');
+
         return (
             <div className={styles.authContainer}>
                 <h1 className={titleClassName}>
