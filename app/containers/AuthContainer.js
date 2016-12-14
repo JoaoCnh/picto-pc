@@ -7,9 +7,7 @@ import { connect } from 'react-redux';
 import Auth from '../../components/auth/Auth';
 
 function mapStateToProps(state, ownProps) {
-    return {
-        router: ownProps.router,
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {

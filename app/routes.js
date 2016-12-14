@@ -20,13 +20,14 @@ export default (
         <Route path="/" component={AppContainer}>
             <IndexRoute component={HomePage} />
 
-            <Route path="profile" component={ProfileContainer}>
+            <Route path="profile">
                 <IndexRoute component={ProfilePage} />
 
                 <Route path="info" component={InfoPage} />
                 <Route path="achievements" component={AchievementsPage} />
             </Route>
         </Route>
+
         <Route path="/auth" component={AuthContainer}>
             <Route path="login" component={LoginPage} />
             <Route path="register" component={RegisterPage} />
