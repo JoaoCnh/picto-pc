@@ -1,9 +1,16 @@
-import { APP_LOAD_START, APP_LOAD_END, TOGGLE_MENU, LOGOUT } from '../actions/app';
+import {
+    APP_LOAD_START,
+    APP_LOAD_END,
+    TOGGLE_MENU,
+    LOGOUT,
+    BATTERY_LEVEL_CHANGED,
+} from '../actions/app';
 
 const initialState = {
     isLoadingApp: false,
     loadFinished: false,
     isMenuActive: false,
+    batteryLevel: null,
 };
 
 export default function app(state = initialState, action = Object) {
@@ -16,6 +23,8 @@ export default function app(state = initialState, action = Object) {
             return {...state, isMenuActive: !state.isMenuActive};
         case LOGOUT:
             return initialState;
+        case BATTERY_LEVEL_CHANGED:
+            return {...state, batteryLevel: action.payload};
         default:
             return state;
     }

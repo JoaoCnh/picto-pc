@@ -27,72 +27,77 @@
 }
 
 .pictoNav ul {
-  position: relative;
-  z-index: 5;
-  padding: 60px 0 0;
-  visibility: hidden;
-  -webkit-transition: visibility 0.3s;
-  transition: visibility 0.3s;
-  text-align: right;
+    position: relative;
+    z-index: 5;
+    padding: 60px 0 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0.3s;
+    transition: visibility 0.3s;
+    text-align: right;
+    list-style: none;
 }
 .pictoNav ul a {
-  position: relative;
-  text-decoration: none;
-  display: block;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 calc(1em + 60px) 0 1em;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.4rem;
-  -webkit-transition: color 0.2s;
-  -moz-transition: color 0.2s;
-  transition: color 0.2s;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 calc(.3em + 60px) 0 1em;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.4rem;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    transition: color 0.2s;
 }
 .pictoNav ul a::after {
-  /* navigation item icons */
-  position: absolute;
-  height: 16px;
-  width: 16px;
-  right: 22px;
-  top: 50%;
-  -webkit-transform: translateY(-50%) scale(0);
-  transform: translateY(-50%) scale(0);
-  opacity: .6;
+    /* navigation item icons */
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: 22px;
+    top: 50%;
+    -webkit-transform: translateY(-50%) scale(0);
+    transform: translateY(-50%) scale(0);
+    opacity: .6;
 }
 .pictoNav ul a::before {
-  /* line visible next to the active navigation item */
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 16px;
-  top: 50%;
-  right: 60px;
-  -webkit-transform: translateX(3px) translateY(-50%) scaleY(0);
-  transform: translateX(3px) translateY(-50%) scaleY(0);
-  background-color: #fff;
+    /* line visible next to the active navigation item */
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 16px;
+    top: 50%;
+    right: 60px;
+    -webkit-transform: translateX(3px) translateY(-50%) scaleY(0);
+    transform: translateX(3px) translateY(-50%) scaleY(0);
+    background-color: #fff;
+}
+.pictoNav ul a.stub {
+    cursor: default;
 }
 .pictoNav ul li:first-of-type a::after {
-  /* change custom icon using image sprites */
-  background-position: -32px 0;
+    /* change custom icon using image sprites */
+    background-position: -32px 0;
 }
 .pictoNav ul li:nth-of-type(2) a::after {
-  background-position: -64px 0;
+    background-position: -64px 0;
 }
 .pictoNav ul li:nth-of-type(3) a::after {
-  background-position: -48px 0;
+    background-position: -48px 0;
 }
 .pictoNav ul li:nth-of-type(4) a::after {
-  background-position: 0 0;
+    background-position: 0 0;
 }
 .pictoNav ul li:nth-of-type(5) a::after {
-  background-position: -16px 0;
+    background-position: -16px 0;
 }
 .pictoNav ul span {
-  /* navigation item labels */
-  display: block;
-  opacity: 0;
-  -webkit-transform: translateX(-25px);
-  transform: translateX(-25px);
+    /* navigation item labels */
+    display: block;
+    font-size: 15px;
+    opacity: 0;
+    -webkit-transform: translateX(-25px);
+    transform: translateX(-25px);
 }
 
 .pictoNav.visible ul {

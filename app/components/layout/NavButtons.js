@@ -31,3 +31,21 @@ export class NavAction extends Component {
         );
     }
 }
+
+export class NavStub extends Component {
+    _handleClick(event) {
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <li>
+                <a href="#" disabled={true} className={styles.stub}
+                    onClick={this._handleClick}>
+                    <span>{this.props.text}</span>
+                    {this.props.children}
+                </a>
+            </li>
+        );
+    }
+}
