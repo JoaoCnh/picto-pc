@@ -4,7 +4,6 @@ import { Router, Route, IndexRoute } from 'react-router';
 
 import AppContainer from './containers/AppContainer';
 import AuthContainer from './containers/auth/AuthContainer';
-import ProfileContainer from './containers/profile/ProfileContainer';
 
 import HomePage from './containers/HomePage';
 import ProfilePage from './containers/profile/ProfilePage';
