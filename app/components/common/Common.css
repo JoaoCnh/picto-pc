@@ -28,10 +28,11 @@
     display: block;
     width: 40px;
     height: 40px;
+    border-radius: 80px;
     background-color: rgba(255, 255, 255, 0.15);
     bottom: -160px;
-    -webkit-animation: square 25s infinite;
-    animation: square 25s infinite;
+    -webkit-animation: bubble 25s infinite;
+    animation: bubble 25s infinite;
     -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
 }
@@ -105,7 +106,7 @@
     -webkit-animation-delay: 11s;
             animation-delay: 11s;
 }
-@-webkit-keyframes square {
+@-webkit-keyframes bubble {
     0% {
         -webkit-transform: translateY(0);
                 transform: translateY(0);
@@ -115,7 +116,7 @@
                 transform: translateY(-700px) rotate(600deg);
     }
 }
-@keyframes square {
+@keyframes bubble {
     0% {
         -webkit-transform: translateY(0);
                 transform: translateY(0);
