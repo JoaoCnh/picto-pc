@@ -20,10 +20,10 @@ export default class Nav extends Component {
             return (<i className="fa fa-battery-empty"></i>);
         } else if (batteryLevel <= 0.25) {
             return (<i className="fa fa-battery-quarter"></i>);
-        } else if (batteryLevel >= 0.25 && batteryLevel <= 0.5) {
+        } else if (batteryLevel > 0.25 && batteryLevel <= 0.5) {
             return (<i className="fa fa-battery-half"></i>);
-        } else if (batteryLevel >= 0.5 && batteryLevel <= 0.75) {
-            return (<i className="fa fa-battery-half"></i>);
+        } else if (batteryLevel > 0.5 && batteryLevel <= 0.75) {
+            return (<i className="fa fa-battery-three-quarters"></i>);
         } else {
             return (<i className="fa fa-battery-full"></i>);
         }
