@@ -4,7 +4,7 @@ import styles from './Home.css';
 
 import AuthBubbles from './auth/AuthBubbles';
 
-export default class App extends Component {
+export default class BubbleWrap extends Component {
     _logout() {
         this.props.logout();
         return this.props.push("/auth/login");

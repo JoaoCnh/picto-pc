@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 
 import Nav from './layout/Nav';
 
+import AuthAPI from '../api/auth';
+
 export default class App extends Component {
     _logout() {
         this.props.logout();
         return this.props.push("/auth/login");
+    }
+
+    componentWillMount() {
+        if (!AuthAPI.isAuthenticated()) {
+            return this.props.push("/auth/login");
+        }
     }
 
     render() {

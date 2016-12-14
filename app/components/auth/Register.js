@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import styles from './Auth.css';
 import AuthError from './AuthError';
+import Button from '../common/Button';
 
 import AuthAPI from '../../api/auth';
 
@@ -62,8 +63,7 @@ export default class Register extends Component {
             <AuthError errorMessage={this.props.register.registerErrorMessage} /> : <div />;
 
         let btnTxt = this.props.register.isAttemptingRegister ? "Please wait..." : "Register";
-        let registeringIcon = this.props.register.isAttemptingRegister ?
-            <i className="fa fa-circle-o-notch fa-spin fa-fw"></i> : <div />;
+        let registeringIcon = this.props.register.isAttemptingRegister ? "circle-o-notch fa-spin fa-fw" : null;
 
         let formClassName = this.props.register.registerSuccess ? styles.fadeOut : "";
         let titleClassName = this.props.register.registerSuccess ? styles.slideDown : "";
@@ -86,12 +86,9 @@ export default class Register extends Component {
                     <input type="password" placeholder="Password Confirmation"
                         value={this.props.register.registerPasswordConfirmation}
                         onChange={this._handlePasswordConfirmationChange.bind(this)} />
-
-                    <button type="submit" className={styles.authButton}
-                        disabled={this.props.register.isAttemptingRegister}
-                        onClick={this._handleRegisterAttempt.bind(this)}>
-                        {registeringIcon} {btnTxt}
-                    </button>
+                    <Button disabled={this.props.register.isAttemptingRegister}
+                        callback={this._handleRegisterAttempt.bind(this)}
+                        icon={registeringIcon} text={btnTxt} />
 
                     <div className={styles.authExtraLink}>
                         {'Already have an account? '}

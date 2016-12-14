@@ -2,13 +2,13 @@
 @import "~font-awesome/css/font-awesome.css";
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
 }
 
 body ::-webkit-input-placeholder {
-  /* WebKit browsers */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
+    /* WebKit browsers */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-weight: 300;
 }

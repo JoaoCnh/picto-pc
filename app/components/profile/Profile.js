@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+import Button from '../common/Button';
+
 import styles from './Profile.css';
 
 import AuthAPI from '../../api/auth';
@@ -15,7 +17,7 @@ export default class Profile extends Component {
     _handleLogout(event) {
         event.preventDefault();
         this.props.logout();
-        return this.props.router.push("/auth/login");
+        return this.props.push("/auth/login");
     }
 
     render() {
@@ -29,19 +31,12 @@ export default class Profile extends Component {
                     </div>
                 </div>
 
-                <Link className={styles.profileBtn} to="profile/info">
-                    <i className="fa fa-user"></i>
-                    {` Change Information`}
-                </Link>
-                <Link className={styles.profileBtn} to="profile/achievements">
-                    <i className="fa fa-trophy"></i>
-                    {` Achievements`}
-                </Link>
-                <a href="#" className={styles.profileBtn}
-                    onClick={this._handleLogout.bind(this)}>
-                    <i className="fa fa-sign-out"></i>
-                    {` Logout`}
-                </a>
+                <Button asRoute={true} route="profile/info" icon="user"
+                    text="Change Information" />
+                <Button asRoute={true} route="profile/achievements" icon="trophy"
+                    text="Achievements" />
+                <Button asLink={true} callback={this._handleLogout.bind(this)}
+                    icon="sign-out" text="Logout" />
             </div>
         );
     }

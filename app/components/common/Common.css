@@ -1,0 +1,38 @@
+.btn {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #53e3a6;
+    border-radius: 3px;
+    width: 283px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    bottom: 1.25em;
+    left: 25%;
+}
+
+.link {
+    composes: btn;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover,
+.link:hover {
+    background-color: #f5f7f9;
+}
+
+.btn:disabled,
+.link:disabled {
+    background-color: #53e3a6;
+    color: #fff;
+    opacity: 0.7;
+}

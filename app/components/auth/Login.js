@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import styles from './Auth.css';
 import AuthError from './AuthError';
+import Button from '../common/Button';
 
 import AuthAPI from '../../api/auth';
 
@@ -54,8 +55,7 @@ export default class Login extends Component {
             <AuthError errorMessage={this.props.login.loginErrorMessage} /> : <div />;
 
         let btnTxt = this.props.login.isAttemptingLogin ? "Logging in..." : "Login";
-        let loggingInIcon = this.props.login.isAttemptingLogin ?
-            <i className="fa fa-circle-o-notch fa-spin fa-fw"></i> : <div />;
+        let loggingInIcon = this.props.login.isAttemptingLogin ? "circle-o-notch fa-spin fa-fw" : null;
 
         let formClassName = this.props.login.loginSuccess ? styles.fadeOut : "";
         let titleClassName = this.props.login.loginSuccess ? styles.slideDown : "";
@@ -75,11 +75,9 @@ export default class Login extends Component {
                     <input type="password" placeholder="Password"
                         value={this.props.login.loginPassword}
                         onChange={this._handlePasswordChange.bind(this)} />
-                    <button type="submit" className={styles.authButton}
-                        disabled={this.props.login.isAttemptingLogin}
-                        onClick={this._handleLoginAttempt.bind(this)}>
-                        {loggingInIcon} {btnTxt}
-                    </button>
+                    <Button disabled={this.props.login.isAttemptingLogin}
+                        callback={this._handleLoginAttempt.bind(this)}
+                        icon={loggingInIcon} text={btnTxt} />
 
                     <div className={styles.authExtraLink}>
                         {'Not a member? '}

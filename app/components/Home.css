@@ -1,5 +1,5 @@
 .bubbleWrapper {
-  composes: authWrapper from './auth/Auth.css';
+    composes: authWrapper from './auth/Auth.css';
 }
 
 .container {
