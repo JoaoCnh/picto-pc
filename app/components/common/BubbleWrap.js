@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 
-import styles from './Home.css';
+import Bubbles from './Bubbles';
 
-import AuthBubbles from './auth/AuthBubbles';
+import styles from './Common.css';
 
 export default class BubbleWrap extends Component {
-    _logout() {
-        this.props.logout();
-        return this.props.push("/auth/login");
-    }
-
     render() {
         return (
             <div className={styles.bubbleWrapper}>
                 {this.props.children}
-
-                <AuthBubbles />
+                <Bubbles />
             </div>
         );
     }

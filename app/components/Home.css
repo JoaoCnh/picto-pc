@@ -1,7 +1,3 @@
-.bubbleWrapper {
-    composes: authWrapper from './auth/Auth.css';
-}
-
 .container {
   display: flex;
   position: absolute;

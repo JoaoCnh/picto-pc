@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { routerActions } from 'react-router-redux';
 
 import * as AppActions from '../../actions/app';
 
@@ -14,7 +15,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(AppActions, dispatch);
+    return bindActionCreators({ ...routerActions, ...AppActions }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

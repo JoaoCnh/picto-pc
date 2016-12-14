@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AuthBubbles from './AuthBubbles';
+import BubbleWrap from '../common/BubbleWrap';
 
 import styles from './Auth.css';
 
@@ -15,10 +15,9 @@ export default class Auth extends Component {
 
     render() {
         return (
-            <div className={styles.authWrapper}>
+            <BubbleWrap>
                 {this.props.children}
-                <AuthBubbles />
-            </div>
+            </BubbleWrap>
         );
     }
 }

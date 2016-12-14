@@ -7,7 +7,7 @@ import { routerActions } from 'react-router-redux';
 
 import * as AppActions from '../../actions/app';
 
-import BubbleWrap from '../../components/BubbleWrap';
+import BubbleWrap from '../../components/common/BubbleWrap';
 
 function mapStateToProps(state, ownProps) {
     return {
