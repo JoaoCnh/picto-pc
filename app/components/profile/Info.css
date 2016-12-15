@@ -1,0 +1,15 @@
+.container {
+    composes: profileCard from "./Profile.css";
+    text-align: center;
+}
+
+.userIcon {
+    width: 128px;
+    height: 128px;
+}
+
+.userIconSelected {
+    composes: userIcon;
+    border-radius: 100px;
+    border: 2px solid #fff;
+}

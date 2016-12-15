@@ -8,15 +8,15 @@ export const LOGOUT = "LOGOUT";
 export const BATTERY_LEVEL_CHANGED = "BATTERY_LEVEL_CHANGED";
 
 export function startAppLoading() {
-  return {
-    type: APP_LOAD_START,
-  };
+    return {
+        type: APP_LOAD_START,
+    };
 }
 
 export function stopAppLoading() {
-  return {
-    type: APP_LOAD_END,
-  };
+    return {
+        type: APP_LOAD_END,
+    };
 }
 
 export function toggleMenu() {

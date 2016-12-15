@@ -6,11 +6,11 @@ import Button from '../common/Button';
 import styles from './Profile.css';
 
 import AuthAPI from '../../api/auth';
+import imageUtils from '../../utils/images';
 
 export default class Profile extends Component {
     constructor(props) {
         super(props);
-
         this.currentUser = AuthAPI.getLogin();
     }
 
@@ -24,7 +24,8 @@ export default class Profile extends Component {
         return (
             <div className={styles.profileCard}>
                 <div className={styles.profile}>
-                    <img src="../resources/usericons/default.png" className={styles.border} />
+                    <img src={imageUtils.getUserPic(this.currentUser)}
+                        className={styles.border} />
 
                     <div className={styles.profileName}>
                         {this.currentUser.username}
