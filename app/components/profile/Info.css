@@ -3,6 +3,14 @@
     text-align: center;
 }
 
+.iconContainer {
+    display: block;
+    height: 300px;
+    overflow: scroll;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
 .userIcon {
     width: 128px;
     height: 128px;

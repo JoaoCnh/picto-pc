@@ -62,7 +62,7 @@ export default class Info extends Component {
             <div className={styles.container}>
                 <h1>Change information</h1>
 
-                <div>
+                <div className={styles.iconContainer}>
                     {images}
                 </div>
 
