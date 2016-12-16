@@ -26,11 +26,13 @@ const imageUtils = {
         return `${USER_ICONS_PATH}${user.icon}`;
     },
 
-    getUserIcons: () => {
-        return USER_ICONS.map((iconFileName) => {
-            return `${USER_ICONS_PATH}${iconFileName}`;
-        });
-    }
+    getIcons: () => {
+        return USER_ICONS;
+    },
+
+    buildIconPath: (icon) => {
+        return `${USER_ICONS_PATH}${icon}`;
+    },
 
 };
 

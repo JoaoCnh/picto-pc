@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import imageUtils from '../../utils/images';
+
 export default class UserIcon extends Component {
     _handleClick(event) {
         event.preventDefault();
@@ -9,7 +11,7 @@ export default class UserIcon extends Component {
     render() {
         return (
             <a href="#" onClick={this._handleClick.bind(this)}>
-                <img src={this.props.src} className={this.props.cssClass} />
+                <img src={imageUtils.buildIconPath(this.props.src)} className={this.props.cssClass} />
             </a>
         );
     }
