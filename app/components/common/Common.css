@@ -166,3 +166,17 @@
     color: #fff;
     opacity: 0.7;
 }
+
+/* Toast */
+.toast {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: auto;
+}
+
+.toast img {
+    max-width: 105%;
+}

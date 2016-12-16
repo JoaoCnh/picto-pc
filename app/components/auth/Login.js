@@ -1,14 +1,14 @@
 // @flow
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from "react";
+import { Link } from "react-router";
 
-import styles from './Auth.css';
-import AuthError from './AuthError';
-import Button from '../common/Button';
+import styles from "./Auth.css";
+import AuthError from "./AuthError";
+import Button from "../common/Button";
 
-import AuthAPI from '../../api/auth';
+import AuthAPI from "../../api/auth";
 
-import strUtils from '../../utils/str';
+import strUtils from "../../utils/str";
 
 export default class Login extends Component {
     _handleLoginAttempt(event) {
@@ -80,9 +80,9 @@ export default class Login extends Component {
                         icon={loggingInIcon} text={btnTxt} />
 
                     <div className={styles.authExtraLink}>
-                        {'Not a member? '}
+                        {"Not a member? "}
                         <Link to="/auth/register">
-                            {'Register here '}
+                            {"Register here "}
                             <i className="fa fa-arrow-right"></i>
                         </Link>
                     </div>
