@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { toastr } from "react-redux-toastr";
 
 import UserIcon from "./UserIcon";
 import Button from "../common/Button";
@@ -31,8 +32,11 @@ export default class Info extends Component {
         UserAPI.setIcon(this.currentUser.id, this.props.info.selectedIcon)
             .then((res) => {
                 if (res.error) {
-
+                    this.props.savingInfo(false);
+                    return toastr.error("ERROR", "Something went wrong! Please try again later!");
                 }
+
+                toastr.success("Nice!", "You've just updated your icon!");
 
                 AuthAPI.setLogin(res.user);
                 this.props.savingInfo(false);
