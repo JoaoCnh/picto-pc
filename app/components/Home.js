@@ -1,15 +1,21 @@
 // @flow
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from "react";
+import { Link } from "react-router";
 
-import styles from './Home.css';
-import loaderStyles from './AppLoader.css';
+import AppLoader from "./AppLoader";
+import Chat from "./chat/Chat";
 
-import AppLoader from './AppLoader';
+import AuthAPI from "../api/auth";
 
-import AuthAPI from '../api/auth';
+import styles from "./Home.css";
+import loaderStyles from "./AppLoader.css";
 
 export default class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.currentUser = AuthAPI.getLogin();
+    }
+
     componentWillMount() {
         if (!this.props.app.loadFinished) {
             this.props.startAppLoading();
@@ -32,7 +38,12 @@ export default class Home extends Component {
                         <h1>Olá esquerda</h1>
                     </div>
                     <div className={styles.rightContainer}>
-                        <h1>Olá direita</h1>
+                        <Chat messages={this.props.chat.messages}
+                            currentUser={this.currentUser}
+                            currentMessage={this.props.chat.currentMessage}
+                            isSendingMessage={this.props.chat.isSendingMessage}
+                            updateMessage={this.props.updateMessage}
+                            error={this.props.chat.error} />
                     </div>
                 </div>
             </div>

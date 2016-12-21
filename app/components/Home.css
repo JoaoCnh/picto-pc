@@ -17,8 +17,10 @@
 
 .leftContainer {
     flex: 1;
+    z-index: 2;
 }
 
 .rightContainer {
     flex: 1;
+    z-index: 2;
 }

@@ -1,0 +1,138 @@
+.chatWindow {
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+
+.chatMessages {
+    position: relative;
+    list-style: none;
+    padding: 20px 10px 0 10px;
+    margin: 0;
+    height: 80%;
+    overflow: scroll;
+}
+
+.chatMessage {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all .5s linear;
+    width: 100%;
+}
+
+.chatAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.chatTextWrapper {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 6px;
+    width: calc(100% - 85px);
+    min-width: 100px;
+    position: relative;
+}
+
+.chatTextWrapper .chatText {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.chatMessageLeft {
+    composes: chatMessage;
+    float: left;
+}
+
+.chatMessageLeft .chatAvatar {
+    float: left;
+    background-color: #f5886e;
+}
+
+.chatMessageLeft .chatTextWrapper {
+    background-color: #ffe6cb;
+    margin-left: 5px;
+}
+
+.chatMessageLeft .chatText {
+    color: #c48843;
+}
+
+.chatMessageRight {
+    composes: chatMessage;
+    float: right;
+}
+
+.chatMessageRight .chatAvatar {
+    float: right;
+    background-color: #fdbf68;
+}
+
+.chatMessageRight .chatTextWrapper {
+    float: right;
+    background-color: #c7eafc;
+    margin-right: 5px;
+}
+
+.chatMessageRight .chatText {
+    color: #45829b;
+}
+
+.chatMessage-appear {
+    opacity: 0.01;
+}
+
+.chatMessage-appear:active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}
+
+.chatBottomWrapper {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 20px;
+}
+
+.chatBottomWrapper .chatMessageInputWrapper {
+    display: inline-block;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid #bcbdc0;
+    width: calc(100% - 160px);
+    position: relative;
+    padding: 0 20px;
+}
+
+.chatBottomWrapper .chatMessageInputWrapper .chatMessageInput {
+    border: none;
+    height: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 40px);
+    position: relative;
+    outline-width: 0;
+    color: #000;
+}
+
+.chatMessageInput::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #000 !important;
+}
+
+.chatBottomWrapper .chatSendMessage {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50px;
+    background-color: red;
+    border: 2px solid red;
+    color: #fff;
+    cursor: pointer;
+    transition: all .2s linear;
+    text-align: center;
+    margin-left: 15px;
+}
