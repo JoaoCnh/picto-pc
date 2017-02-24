@@ -10,8 +10,22 @@ export default class Chat extends Component {
         this.props.updateMessage(event.target.value);
     }
 
-    _sendMessage() {
+    _sendMessage(message) {
+        if (!message) { return; }
 
+        this.props.sendingMessage();
+
+        setTimeout(() => {
+            let messageObj = {
+                content: message,
+                author: this.props.currentUser.username,
+                time: Date.now(),
+            };
+
+            this.props.sendMessage(messageObj);
+
+            this.props.socket.emit('chat message', messageObj);
+        }, 250);
     }
 
     render() {

@@ -4,6 +4,7 @@ import {
     TOGGLE_MENU,
     LOGOUT,
     BATTERY_LEVEL_CHANGED,
+    SETUP_SOCKET,
 } from '../actions/app';
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
     loadFinished: false,
     isMenuActive: false,
     batteryLevel: null,
+    socket: null,
 };
 
 export default function app(state = initialState, action = Object) {
@@ -25,6 +27,8 @@ export default function app(state = initialState, action = Object) {
             return initialState;
         case BATTERY_LEVEL_CHANGED:
             return {...state, batteryLevel: action.payload};
+        case SETUP_SOCKET:
+            return {...state, socket: action.payload};
         default:
             return state;
     }

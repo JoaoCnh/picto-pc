@@ -7,6 +7,8 @@ import Chat from "./chat/Chat";
 
 import AuthAPI from "../api/auth";
 
+import socketUtils from "../utils/socket";
+
 import styles from "./Home.css";
 import loaderStyles from "./AppLoader.css";
 
@@ -19,6 +21,9 @@ export default class Home extends Component {
     componentWillMount() {
         if (!this.props.app.loadFinished) {
             this.props.startAppLoading();
+
+            let socket = socketUtils.init(this.currentUser);
+            this.props.setupSocket(socket);
 
             setTimeout(() => {
                 this.props.stopAppLoading();
@@ -43,6 +48,9 @@ export default class Home extends Component {
                             currentMessage={this.props.chat.currentMessage}
                             isSendingMessage={this.props.chat.isSendingMessage}
                             updateMessage={this.props.updateMessage}
+                            sendingMessage={this.props.sendingMessage}
+                            sendMessage={this.props.sendMessage}
+                            socket={this.props.app.socket}
                             error={this.props.chat.error} />
                     </div>
                 </div>

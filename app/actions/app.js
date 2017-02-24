@@ -6,6 +6,7 @@ export const APP_LOAD_END = "APP_LOAD_END";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 export const LOGOUT = "LOGOUT";
 export const BATTERY_LEVEL_CHANGED = "BATTERY_LEVEL_CHANGED";
+export const SETUP_SOCKET = "SETUP_SOCKET";
 
 export function startAppLoading() {
     return {
@@ -36,5 +37,12 @@ export function batteryLevelChanged(level) {
     return {
         type: BATTERY_LEVEL_CHANGED,
         payload: level,
+    };
+}
+
+export function setupSocket(socket) {
+    return {
+        type: SETUP_SOCKET,
+        payload: socket,
     };
 }

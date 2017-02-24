@@ -23,7 +23,7 @@ app.get('/connections', function (req, res) {
 app.use(require('./controllers'));
 
 io.on('connection', function(socket) {
-    var socketUser = socket.handshake.query.username;
+    var socketUser = socket.handshake.query.user;
     console.log(socketUser + ' connected');
 
     socket.on('disconnect', function() {
