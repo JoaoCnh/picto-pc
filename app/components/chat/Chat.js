@@ -19,6 +19,7 @@ export default class Chat extends Component {
             let messageObj = {
                 content: message,
                 author: this.props.currentUser.username,
+                icon: this.props.currentUser.icon,
                 time: Date.now(),
             };
 

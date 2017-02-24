@@ -53,6 +53,11 @@
     background-color: #f5886e;
 }
 
+.chatMessageLeft .chatAvatar img {
+    width: 30px;
+    height: 30px;
+}
+
 .chatMessageLeft .chatTextWrapper {
     background-color: #ffe6cb;
     margin-left: 5px;
@@ -70,6 +75,11 @@
 .chatMessageRight .chatAvatar {
     float: right;
     background-color: #fdbf68;
+}
+
+.chatMessageRight .chatAvatar img {
+    width: 30px;
+    height: 30px;
 }
 
 .chatMessageRight .chatTextWrapper {
